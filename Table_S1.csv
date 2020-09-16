@@ -1,0 +1,47 @@
+Sample_Name,Collection_ID,Species,Map_type,Map_colour,Caste(s) sampled,cox1_sequenced,ddRADseq genotypes,Locale,abbrev,County,State,Year collected,Lat N,Long W
+Pb_MSC,MSCb2,P. barbatus,P. barbatus,green,"Queen, Worker",x,x,Monterrey-Saltillo Site C,MSC,Nuevo Léon,Mexico,2007,25.7031,-100.5398
+Pb_MSD,MSD1,P. barbatus,P. barbatus,green,Worker,x,x,Monterrey-Saltillo Site D,MSD,Nuevo Léon,Mexico,2007,25.7213,-100.5396
+Pb_TOR5,TOR5,P. barbatus,P. barbatus,green,Worker,x,x,Torréon,TOR,Coahuila,Mexico,2007,25.6654,-103.5357
+Pb_TOR23,TOR23,P. barbatus,P. barbatus,green,Worker,x,x,Torréon,TOR,Coahuila,Mexico,2007,25.6654,-103.5357
+Pb_CT,CT81w,P. barbatus,P. barbatus,green,Worker,x,x,W of Hope,WHO,Sierra,NM,2008,32.8667,-104.9882
+Pb_WWR,WWR10_6,P. barbatus,P. barbatus,green,Queen,x,x,"Welder Wildlife Foundation, Sinton",WWR,San Patricio,TX,2010,28.1238,-97.1569
+Pb_LK,LK-1,P. barbatus,P. barbatus,green,Queen,,x,Blumenthal,LK,Travis,TX,2012,30.2251,-98.8038
+Pb_SAL,Sal5,P. barbatus,P. barbatus,green,Queen,x,x,Saltillo,SAL,Coahuila,Mexico,2007,25.4425,-100.9920
+Pb_LW,LW-1,P. barbatus,P. barbatus,green,Queen,x,x,Davis Mountains State Park,LW,Jeff Davis,TX,2009,30.7062,-104.1067
+Pb_LAR,LAR-1,P. barbatus,P. barbatus,green,Worker,x,x,"Lake Casa Blanca State Park, Laredo",LAR,Webb,TX,2010,27.5367,-99.4332
+Pb_BRG,BRG1,P. barbatus,P. barbatus,green,Worker,x,x,"N of Bentsen-Rio Grande State Park, Mission",BRG,Hidalgo,TX,2010,26.1840,-98.3803
+FGH1_GP,GP17,FGH1,FGH,purple,"Queen, Worker",x,x,near Gomez Palacio,GP,Durango,Mexico,2007,26.3573,-103.9185
+FGH_GP3,GP3,FGH,FGH,purple,Worker,x,,near Gomez Palacio,GP,Durango,Mexico,2007,26.3573,-103.9185
+FGH_GP5,GP5,FGH,FGH,purple,Worker,x,,near Gomez Palacio,GP,Durango,Mexico,2007,26.3573,-103.9185
+F1_MF,MF-F1,F1,FGH,purple,Queen,x,x,Marfa,MF,Presidio,TX,2012,30.3219,-103.9947
+F2_MF,MF-F2,F2,FGH,purple,Queen,x,x,Marfa,MF,Presidio,TX,2012,30.3219,-103.9947
+F1_ROS,ROS-F1,F1,FGH,purple,Queen,x,x,Roswell,ROS,Chaves,NM,2012,33.3931,-104.6909
+F2_ROS,ROS-F2,F2,FGH,purple,Queen,x,x,Roswell,ROS,Chaves,NM,2012,33.3931,-104.6909
+F_Orla2,Orla-2,F,FGH,purple,Worker,x,,Orla,ORLA,Reeves,TX,2012,31.8239,-103.9068
+F_Orla12,Orla-12,F,FGH,purple,Worker,x,,Orla,ORLA,Reeves,TX,2012,31.8239,-103.9068
+G1_HOB,HOB-G1,G1,FGH,purple,Queen,x,x,Hobbs,HOB,Lea,NM,2012,32.8500,-103.2674
+G2_HOB,HOB-G2,G2,FGH,purple,Queen,x,x,Hobbs,HOB,Lea,NM,2012,32.8500,-103.2674
+G1_ALA,ALA_G_Q43_G1,G1,FGH,purple,Queen,x,x,Alamagordo,ALA,Otero,NM,2012,32.8926,-105.9679
+G2_ALA,ALA_Q45_G2,G2,FGH,purple,Queen,x,x,Alamagordo,ALA,Otero,NM,2012,32.8926,-105.9679
+H1_SS,SS_Q18_H1,H1,FGH,purple,Queen,x,x,San Simon,SS,Cochise,AZ,2009,32.2148,-109.1762
+H2_SS,SS_Q12_H2,H2,FGH,purple,Queen,x,x,San Simon,SS,Cochise,AZ,2009,32.2148,-109.1762
+H1_Hill,Hill_Q13_H1,H1,FGH,purple,Queen,x,x,E of Hillsboro,HILL,Sierra,NM,2010,32.9603,-107.4850
+H2_Hill,Hill_Q225_H2,H2,FGH,purple,Queen,x,x,E of Hillsboro,HILL,Sierra,NM,2010,32.9603,-107.4850
+H1_Hill,H_Q12_H1,H1,FGH,purple,"Queen, Worker",x,x,Jct. Rte. 9 and Rte. 80,J980,Hidalgo,NM,2009,32.4162,-109.6655
+H2_Hill,H_Q24_H2,H2,FGH,purple,"Queen, Worker",x,x,Jct. Rte. 9 and Rte. 80,J980,Hidalgo,NM,2009,32.4162,-109.6655
+FGH_S14,Site14-1,FGH,FGH,purple,Worker,x,x,N of Fort McKavett,NFOR,,TX,2012,30.8274,-100.2249
+J1_SL,SL_Q74_J1,J1,J,orange,"Queen, Worker",x,x,Jct. State Line Rd. & Portal Rd. ,SL,Hidalgo,NM,2010,31.8711,-109.0478
+J2_SL,SL_Q85_J2,J2,J,orange,"Queen, Worker",x,x,Jct. State Line Rd. & Portal Rd. ,SL,Hidalgo,NM,2010,31.8711,-109.0478
+J1_FB,FB_Q1_J1,J1,J,orange,Queen,x,x,N Fort Bowie Historical Park,FB,Cochise,AZ,2010,32.1581,-109.4554
+J2_FB,FB_Q45_J2,J2,J,orange,Queen,x,x,N Fort Bowie Historical Park,FB,Cochise,AZ,2010,32.1581,-109.4554
+J1_SON,Son5_J1,J1,J,orange,Queen,x,x,Sonoita,SON,Santa Cruz,AZ,2010,31.7121,-110.5896
+J2_SON,Son3_J2,J2,J,orange,Queen,x,,Sonoita,SON,Santa Cruz,AZ,2010,31.7121,-110.5896
+Pr_K40,Kirk40-2,P. rugosus,P. rugosus,red,Worker,x,x,Moriarty,KIRK,Torrance,NM,2008,35.0055,-105.9434
+Pr_B,B10-4,P. rugosus,P. rugosus,red,Queen,x,x,Bowie,B10,Cochise,AZ,2010,32.3154,-109.4844
+Pr_PHX,PHX_F13,P. rugosus,P. rugosus,red,Queen,,x,Phoenix,PHX,Maricopa,AZ,2010,33.4500,-112.0667
+Pr_EPW,EPW,P. rugosus,P. rugosus,red,Queen,x,x,El Paso,EPW,El Paso,TX,2010,31.9836,-106.5858
+Pr_Q,Pr-Q1,P. rugosus,P. rugosus,red,Queen,x,x,Superstition Mountains,PR,Maricopa ,AZ,2010,33.4714,-111.4760
+Pr_MSC,MSCr2,P. rugosus,P. rugosus,red,"Queen, Worker",,x,Monterrey-Saltillo Site C,MSC,Nuevo Léon,Mexico,2007,25.7031,-100.5398
+Pr_WS,WS,P. rugosus,P. rugosus,red,Queen,x,x,Hwy. 191 2km N I-10 near Willcox,WS,Cochise,AZ,2010,32.4652,-109.6902
+Out_Pdes,Des-1,P. desertorum,P. desertorum,black,Queen,x,x,Hwy. 191 2km N I-10 near Willcox,WS,Cochise,AZ,2012,32.3989,-109.6633
+Out_Pocc,Occ-1,P. occidentalis,P. occidentalis,grey,Queen,x,x,Hwy. 285 N of Encino,H285,Torrance,NM,2012,24.7837,-105.5509

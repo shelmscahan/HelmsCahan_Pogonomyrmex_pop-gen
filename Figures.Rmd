@@ -1,0 +1,58 @@
+---
+title: "Figures"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Library load
+```{r library}
+
+library(dplyr)# data manipulation
+library(ggplot2) # plotting
+library(ape) # phylogenetics package
+library(phytools)# phylogenetics package
+```
+
+# load data
+
+```{r}
+# load tree
+tr<-read.tree("RAxML_bipartitions_Pocc-out.nwk")
+
+#plotTree(tr,ftype="i")
+
+
+# no branch lengths
+tr1<-tr
+tr1$edge.length<-NULL
+
+tr1<-rotate(tr1, node=c(42,))
+plotTree(tr1,ftype="i")
+
+nodelabels()
+#rotate(tr1, node,42)
+
+
+## load the map
+dat<-read.csv("Table_S1.csv")
+
+
+```
+
+
+## plot map
+
+```{r}
+
+
+```
+
+
+# Session info
+```{r sessioninfo}
+
+sessionInfo()
+
+
+```
