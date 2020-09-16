@@ -25,6 +25,9 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 class(world)
 library(ggspatial)
 library(geiger)
+#if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+#BiocManager::install("ggtree")
+library(ggtree)
 ```
 
 # load data
@@ -33,9 +36,27 @@ library(geiger)
 # load tree
 tr<-read.tree("RAxML_bipartitions_Pocc-out.nwk")
 
-#plotTree(tr,ftype="i")
 
 
+## load the map
+dat<-read.csv("Table_S1.csv")
+range(dat$Lat.N)
+range(dat$Long.W)
+# get unique coords - for map
+dat.un<-dat%>%
+  group_by(Map_type,Map_colour,abbrev)%>%
+  dplyr::summarise(lat=mean(Lat.N),lon=mean(Long.W))
+
+dat.un$Map_type<-factor(dat.un$Map_type,levels=c("P. rugosus","FGH","J","P. barbatus","P. occidentalis","P. desertorum"))
+
+
+
+```
+
+## phylogeny plot
+
+```{r}
+###using ape and phytools
 # no branch lengths
 tr1<-tr
 tr1$edge.length<-NULL
@@ -48,23 +69,7 @@ edgelabels()
 
 
 # to color edges -https://ecomorph.wordpress.com/2014/10/09/phylogenetic-trees-in-r-4/
-
-##set nodes to a species/lineage
-## will be used for coloring the branches
-#prug<-tips(tr1, node=57)
-#prug2<-tips(tr1, node=53)
-#prug3<-tips(tr1,node=79)
-Jlin<-c(tips(tr1,node=55),tips(tr1,node=72))
-fgh<-c(tips(tr1,node=46),tips(tr1,node=73))
-pbarb<-c(tips(tr1,node=68),tips(tr1,node=62))
-
 ### get branch info based on tip info we just extracted
-#prugB <- c(5,which.edge(tr1,prug) )
-#prugB2 <- which.edge(tr1,prug2) 
-#prugB3 <- which.edge(tr1,prug3) 
-#JlinB <- which.edge(tr1,Jlin) 
-#fghB <- which.edge(tr1,fgh) 
-#pbarbB <- which.edge(tr1,pbarb) 
 prugB<-c(5,6,7,8,9,10,11,18,19,20,37,38,39)
 JlinB<-c(12,13,14,15,16,43,44,45)
 fghB<-c(seq(21,35,1),seq(46,58,1))
@@ -78,20 +83,13 @@ clcolr[prugB] <- "red"
 
 ### replotting with color
 plot(tr1,direction="downwards",edge.color=clcolr,edge.width=3)
+#nodelabels(text=tr1$node.label)
 
-## load the map
-dat<-read.csv("Table_S1.csv")
-range(dat$Lat.N)
-range(dat$Long.W)
+###using ggtree
+#ggtree(tr1)+geom_text()
 
-# get unique coords
-dat.un<-dat%>%
-  group_by(Map_type,Map_colour,abbrev)%>%
-  dplyr::summarise(lat=mean(Lat.N),lon=mean(Long.W))
 
-dat.un$Map_type<-factor(dat.un$Map_type,levels=c("P. rugosus","FGH","J","P. barbatus","P. occidentalis","P. desertorum"))
 ```
-
 
 ## plot map
 
@@ -99,15 +97,12 @@ dat.un$Map_type<-factor(dat.un$Map_type,levels=c("P. rugosus","FGH","J","P. barb
 ggplot(data = world) +
 geom_sf(fill= "white")+borders("state")+theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))+
 coord_sf(xlim = c(-120,-90), ylim = c(23,37), expand = FALSE)+borders("state")+
-  geom_point(data=dat.un,aes(x=lon,y=lat,colour=factor(Map_type)),size=2)+scale_color_manual(values=c("red","violet","goldenrod","blue","grey","black"),name="Species/Lineage")+xlab("Longitude")#+ylab("Latitude")
+  geom_point(data=dat.un,aes(x=lon,y=lat,colour=factor(Map_type)),size=2)+scale_color_manual(values=c("red","violet","goldenrod","blue","grey","black"),name="Species/Lineage")+xlab("Longitude")+ylab("Latitude")
 #  geom_text(data=dat.un,aes(x=jitter(lon),y=jitter(lat),label=abbrev),size=3)
 
 
-#library(devtools)
-#install_github("thomasp85/patchwork")
-library(patchwork)
 
-p1 + p2 + p3 + plot_layout(ncol=1)
+
 
 ```
 
