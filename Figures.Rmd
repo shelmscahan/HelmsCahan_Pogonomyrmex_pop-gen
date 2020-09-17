@@ -10,6 +10,7 @@ editor_options:
 
 library(dplyr)# data manipulation
 library(ggplot2) # plotting
+library(ggsn) # scale bar on map
 library(ape) # phylogenetics package
 library(phytools)# phylogenetics package
 
@@ -33,9 +34,10 @@ library(ggtree)
 # load data
 
 ```{r}
-# load tree
+# load tree from SNP data 
 tr<-read.tree("RAxML_bipartitions_Pocc-out.nwk")
-
+# load tree from mito data
+mit<-read.tree("PhyML_tree_with_F1.nwk")
 
 
 ## load the map
@@ -66,19 +68,23 @@ plotTree(tr1,direction="downwards")
 nodelabels()
 edgelabels()
 
-
+colz<-brewer.pal(n = 11, name = "Spectral")
 
 # to color edges -https://ecomorph.wordpress.com/2014/10/09/phylogenetic-trees-in-r-4/
 ### get branch info based on tip info we just extracted
 prugB<-c(5,6,7,8,9,10,11,18,19,20,37,38,39)
 JlinB<-c(12,13,14,15,16,43,44,45)
-fghB<-c(seq(21,35,1),seq(46,58,1))
+flinB<-c(24,33,35,51,52,53)
+glinB<-c(22,34,47,48,49)
+hlinB<-c(seq(26,30,1),seq(54,58,1))
 pbarbB<-c(seq(59,65,1),seq(66,76,1))
 ### now we get to add the color
-clcolr <- rep("darkgrey", dim(tr1$edge)[1]) ## background color
-clcolr[JlinB] <- "goldenrod"
-clcolr[fghB] <- "violet"
-clcolr[pbarbB] <- "blue"
+clcolr <- rep("grey73", dim(tr1$edge)[1]) ## background color
+clcolr[JlinB] <- "plum3"
+clcolr[flinB] <- "lightgoldenrod2"
+clcolr[glinB] <- colz[9]
+clcolr[hlinB] <- colz[4]
+clcolr[pbarbB] <-"royalblue3"
 clcolr[prugB] <- "red"
 
 ### replotting with color
@@ -87,6 +93,31 @@ plot(tr1,direction="downwards",edge.color=clcolr,edge.width=3)
 
 ###using ggtree
 #ggtree(tr1)+geom_text()
+
+###mito tree
+#with branch lengths
+mit<-rotateNodes(mit, nodes=c(43,44,45,46,54,56,57,62,77))
+#plot(mit,direction="upward")
+
+# no branch lengths
+mit1<-mit
+mit1$edge.length<-NULL
+mit1<-rotateNodes(mit1, nodes=c(43,44,45,46,54,56,57,62,77))
+plot(mit1,direction="upward")
+#nodelabels(text=mit1$node.label)
+
+edgelabels()
+##selecting edges
+rugb<-c(3,4,5,7,8,9,10,11)
+jlinb<-c(seq(12,16,1))
+fghb<-
+
+##plot comparison
+par(mar=c(0,0,0,0))
+par(mfrow=c(2,1))
+plot(tr1,direction="downwards",edge.color=clcolr,edge.width=3)
+plot(mit1,direction="upward",edge.width=3)
+par(mfrow=c(1,1))
 
 
 ```
@@ -97,8 +128,7 @@ plot(tr1,direction="downwards",edge.color=clcolr,edge.width=3)
 ggplot(data = world) +
 geom_sf(fill= "white")+borders("state")+theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))+
 coord_sf(xlim = c(-120,-90), ylim = c(23,37), expand = FALSE)+borders("state")+
-  geom_point(data=dat.un,aes(x=lon,y=lat,colour=factor(Map_type)),size=2)+scale_color_manual(values=c("red","violet","goldenrod","blue","grey","black"),name="Species/Lineage")+xlab("Longitude")+ylab("Latitude")
-#  geom_text(data=dat.un,aes(x=jitter(lon),y=jitter(lat),label=abbrev),size=3)
+  geom_point(data=dat.un,aes(x=lon,y=lat,colour=factor(Map_type)),size=2)+scale_color_manual(values=c("red","violet","goldenrod","blue","grey","black"),name="Species/Lineage")+xlab("Longitude")+ylab("Latitude")+theme(legend.text = element_text(face = "italic"))+ annotation_scale() #geom_text(data=dat.un,aes(x=jitter(lon),y=jitter(lat),label=abbrev),size=3)
 
 
 
